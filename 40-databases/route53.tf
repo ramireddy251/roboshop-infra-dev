@@ -3,7 +3,6 @@ resource "aws_route53_zone" "roboshop" {
 }
 
 resource "aws_route53_record" "mongodb" {
-  count = 10  
   zone_id = aws_route53_zone.roboshop.id
   name    = "mongodb-${var.environment}.${var.domain_name}"
   type    = "A"
@@ -13,7 +12,6 @@ resource "aws_route53_record" "mongodb" {
 }
 
 resource "aws_route53_record" "redis" {
-  count = 10  
   zone_id = aws_route53_zone.roboshop.id
   name    = "redis-${var.environment}.${var.domain_name}"
   type    = "A"
