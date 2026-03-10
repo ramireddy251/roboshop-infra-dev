@@ -1,7 +1,7 @@
 resource "aws_iam_role" "mysql" {
     name = local.mysql_role_name
 
-    assume_role_policy = jsnocode({
+    assume_role_policy = jsoncode({
         Version = "2012-10-17"
         Statement = [
             {
