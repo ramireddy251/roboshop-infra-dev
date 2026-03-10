@@ -30,7 +30,7 @@ resource "aws_route53_record" "mysql" {
 }
 
 resource "aws_route53_record" "rabbitmq" {
-  zone_id = aws_route53_zone.rabbitmq.id
+  zone_id = aws_route53_zone.roboshop.id
   name    = "rabbitmq-${var.environment}.${var.domain_name}"
   type    = "A"
   ttl     = "300"
