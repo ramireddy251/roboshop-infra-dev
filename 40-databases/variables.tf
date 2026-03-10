@@ -19,3 +19,8 @@ variable "instance_type" {
     default = "t3a.micro"
   
 }
+
+variable "domain_name" {
+    type = string
+    default = "ramireddy.co.in"
+}
