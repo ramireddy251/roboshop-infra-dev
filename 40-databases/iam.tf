@@ -5,7 +5,7 @@ resource "aws_iam_role" "mysql" {
         Version = "2012-10-17"
         Statement = [
             {
-                Action = "sts: AssumeRole"
+                Action = "sts:AssumeRole"
                 Effect = "Allow"
                 Sid = ""
                 Principal = {
