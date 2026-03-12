@@ -31,7 +31,7 @@ resource "aws_lb_listener" "http" {
   }
 }
 
-resource "aws_route53_record" "www" {
+resource "aws_route53_record" "backend-alb" {
   zone_id = local.route53_zone_id
   name    = "*.backend-alb-${var.environment}.${var.domain_name}"
   type    = "A"
