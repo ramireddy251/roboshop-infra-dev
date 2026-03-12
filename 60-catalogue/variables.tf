@@ -24,3 +24,7 @@ variable "domain_name" {
     type = string
     default = "ramireddy.co.in"
 }
+
+variable "app_version" {
+  default = "v3"
+}

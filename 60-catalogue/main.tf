@@ -12,7 +12,7 @@ resource "aws_instance" "catalogue" {
     )
 }
 
-resource "terraform_data" "bootstrap_catalogue" {
+resource "terraform_data" "catalogue" {
     triggers_replace = [
         aws_instance.catalogue.id
     ]
@@ -32,7 +32,7 @@ resource "terraform_data" "bootstrap_catalogue" {
     provisioner "remote-exec" {
        inline = [
           "chmod +x /tmp/bootstrap.sh",
-          "sudo sh /tmp/bootstrap.sh catalogue ${var.environment}"
+          "sudo sh /tmp/bootstrap.sh catalogue ${var.environment} ${var.app_version}"
        ]      
     }
 }
@@ -45,7 +45,7 @@ resource "aws_ec2_instance_state" "catalogue" {
 }
 
 resource "aws_ami_from_instance" "catalogue" {
-    name = "${var.project}-${var.environment}-catalogue"
+    name = "${var.project}-${var.environment}-catalogue-${var.app_version}-${aws_instance.catalogue.id}"
     source_instance_id = aws_instance.catalogue.id
     depends_on = [ aws_ec2_instance_state.catalogue ]
 
@@ -166,6 +166,7 @@ resource "aws_autoscaling_policy" "catalogue" {
     autoscaling_group_name = aws_autoscaling_group.catalogue.name
     name = "${var.project}-${var.environment}-catalogue"
     policy_type = "TargetTrackingScaling"
+    estimated_instance_warmup = 120
 
     target_tracking_configuration {
       predefined_metric_specification {

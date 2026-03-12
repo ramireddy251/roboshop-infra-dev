@@ -12,7 +12,7 @@ resource "aws_instance" "mongodb" {
     )
 }
 
-resource "terraform_data" "bootstrap_mongodb" {
+resource "terraform_data" "mongodb" {
     triggers_replace = [
         aws_instance.mongodb.id
     ]
@@ -52,7 +52,7 @@ resource "aws_instance" "redis" {
     )
 }
 
-resource "terraform_data" "bootstrap_redis" {
+resource "terraform_data" "redis" {
     triggers_replace = [
         aws_instance.redis.id
     ]
@@ -93,7 +93,7 @@ resource "aws_instance" "mysql" {
     )
 }
 
-resource "terraform_data" "bootstrap_mysql" {
+resource "terraform_data" "mysql" {
     triggers_replace = [
         aws_instance.mysql.id
     ]
@@ -133,7 +133,7 @@ resource "aws_instance" "rabbitmq" {
     )
 }
 
-resource "terraform_data" "bootstrap_rabbitmq" {
+resource "terraform_data" "rabbitmq" {
     triggers_replace = [
         aws_instance.rabbitmq.id
     ]
