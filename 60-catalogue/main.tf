@@ -149,8 +149,8 @@ resource "aws_autoscaling_group" "catalogue" {
         local.common_tags
     )
     content {
-      key                 = each.key
-      value               = each.value
+      key                 = tag.key
+      value               = tag.value
       propagate_at_launch = true
     }
     
@@ -159,12 +159,6 @@ resource "aws_autoscaling_group" "catalogue" {
   #within 15min autoscaling should be successful
   timeouts {
     delete = "15m"
-  }
-
-  tag {
-    key                 = "lorem"
-    value               = "ipsum"
-    propagate_at_launch = false
   }
 }
 
