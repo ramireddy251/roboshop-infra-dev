@@ -35,7 +35,7 @@ resource "aws_lb_listener" "https" {
 
 resource "aws_route53_record" "backend-alb" {
   zone_id = local.route53_zone_id
-  name    = "*.${var.environment}.${var.domain_name}"
+  name    = "*.${var.domain_name}"
   type    = "A"
 
   alias {
