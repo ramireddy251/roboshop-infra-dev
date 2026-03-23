@@ -33,7 +33,7 @@ resource "aws_lb_listener" "https" {
   }
 }
 
-resource "aws_route53_record" "backend-alb" {
+resource "aws_route53_record" "frontend-alb" {
   zone_id = local.route53_zone_id
   name    = "*.${var.domain_name}"
   type    = "A"
