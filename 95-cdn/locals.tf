@@ -9,3 +9,5 @@ locals {
     acm_certificate_arn = data.aws_ssm_parameter.acm_certificate_arn.value
     route53_zone_id = data.aws_ssm_parameter.route53_zone_id.value
 }
+
+
