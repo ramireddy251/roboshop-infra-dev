@@ -3,7 +3,7 @@ data "aws_cloudfront_cache_policy" "cachingDisabled" {
 }
 
 data "aws_cloudfront_cache_policy" "cachingOptimized" {
-    name = "Managed-cachingOptimized"
+    name = "Managed-CachingOptimized"
 }
 
 data "aws_ssm_parameter" "acm_certificate_arn" {
