@@ -1,4 +1,4 @@
-resource "aws_instance" "bastion" {
+resource "aws_instance" "openvpn" {
     ami = var.ami_id
     instance_type = var.instance_type
     subnet_id = local.public_subnet_id
